@@ -26,9 +26,10 @@ import java.util.List;
 
 /**
  * some other miscellaneous util functions
- * Created by zhangge on 14-1-3.
+ * Created by SadieYu
  */
 public class Miscellaneous {
+
     public static boolean copyAssets(Context context, String assetName, File to, boolean overwrite) {
         if (to.exists() && !overwrite) {
             return true;
@@ -72,80 +73,12 @@ public class Miscellaneous {
         }
     }
 
-    public static boolean isPackageAbsent(Context context, String packageName) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            PackageInfo info = pm.getPackageInfo(packageName,
-                    PackageManager.GET_META_DATA);
-        } catch (PackageManager.NameNotFoundException e) {
-            return true;
-        }
-        return false;
-    }
-
-    public static String getDeviceName(String defaultname) {
-        String deviceComplex = Build.MODEL.toLowerCase() + Build.HOST.toLowerCase();
-        if (deviceComplex.contains("mele_a100")) {
-            return "迈乐盒子";
-        } else if (deviceComplex.contains("mele")) {
-            return "迈乐盒子";
-        } else if (deviceComplex.contains("kiui")) {
-            return "开博尔";
-        } else if (deviceComplex.contains("Letvx")) {
-            return "乐视电视";
-        } else if (deviceComplex.contains("mygica")) {
-            return "美如画盒子";
-        } else if (deviceComplex.contains("i5d")) {
-            return "我播盒子";
-        } else if (deviceComplex.contains("mitv")) {
-            return "小米电视";
-        } else if (deviceComplex.contains("mibox")) {
-            return "小米盒子";
-        } else if (deviceComplex.contains("aliyun")) {
-            return "阿里云盒子";
-        } else if (deviceComplex.contains("skyworth")) {
-            return "创维电视";
-        } else if (deviceComplex.contains("konka")) {
-            return "康佳电视";
-        } else if (deviceComplex.contains("tcl")) {
-            return "TCL电视";
-        } else if (deviceComplex.contains("hisense")) {
-            return "海信电视";
-        } else if (deviceComplex.contains("wasu_")) {
-            return "华数盒子";
-        } else if (deviceComplex.contains("i71")) {
-            return "爱奇艺盒子";
-        } else if (deviceComplex.contains("diyomate")) {
-            return "迪优美特";
-        } else if (deviceComplex.contains("magicbox")) {
-            return "天猫魔盒";
-        } else if (deviceComplex.contains("tianyun")) {
-            return "天敏盒子";
-        } else if (deviceComplex.contains("10moons")) {
-            return "天敏盒子";
-        } else if (deviceComplex.contains("lcd1server")) {
-            return "创维电视";
-        } else if (deviceComplex.contains("full aosp on godbox") || deviceComplex.contains("hiandroid")
-                || deviceComplex.contains("himedia") || deviceComplex.contains("histbandroid")) {
-            return "海美迪盒子";
-        } else if (deviceComplex.contains("letv") || deviceComplex.contains("alexwang")) {
-            return "乐视盒子";
-        } else if (deviceComplex.contains("s1001") && deviceComplex.contains("ubuntu")) {
-            return "飞看盒子";
-        } else if (deviceComplex.contains("geeya_ott_v")) {
-            return "金亚智能盒";
-        } else if(deviceComplex.contains("b-200")){
-            return "百度影棒";
-        }
-        return defaultname;
-    }
-
     public static void makeToast(Activity someActivity, String toastText) {
         Toast.makeText(someActivity, toastText, Toast.LENGTH_SHORT).show();
     }
 
     public static long getAvailableMemory(Context context) {
-        // 获取android当前可用内存大小
+        //get current avaliable memory
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
