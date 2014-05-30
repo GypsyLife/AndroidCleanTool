@@ -88,7 +88,7 @@ public class AnimationActivity extends Activity {
 
     /**
      *  These code below are copied from Android ApiDemo
-     *  if you want to know more about it you can alse see :
+     *  if you want to know more about it you can also see :
      *  http://developer.android.com/training/animation/cardflip.html
      */
     private Interpolator accelerator = new AccelerateInterpolator();
